@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить питомца{% endblock %}
+
+{% block body %}
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="btn btn-lg btn-light fw-bold border-white bg-secondary" aria-current="page" href="{% url "index" %}">Главная</a>
+      </nav>
+    </div>
+  </header>
+    <div class="d-flex align-items-center py-4 bg-body-tertiary bg-secondary">
+      <main class="form-signin w-100 m-auto">
+        <h1><span class="badge bg-secondary">Добавьте питомца</span></h1>
+        <form method="POST" class="post-form">
+          <fieldset>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+          </fieldset>
+        </form>
+      </main>
+    </div>
+</div>
+
+{% endblock %}

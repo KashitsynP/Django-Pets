@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Все питомцы{% endblock %}
+
+{% block body %}
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="btn btn-lg btn-light fw-bold border-white bg-secondary" aria-current="page" href="{% url "index" %}">Главная</a>
+      </nav>
+    </div>
+  </header>
+  {% for pet in pets %}
+  <ul>
+    <li>
+      <div class="px-3 border rounded d-inline-flex p-10 border-white bg-secondary">
+        <h4>{{ pet }}</h4>
+      </div>
+    </li>
+  </ul>
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Все владельцы{% endblock %}
+
+{% block body %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="btn btn-lg btn-light fw-bold border-white bg-secondary" aria-current="page" href="{% url 'index' %}">Главная</a>
+      </nav>
+    </div>
+  </header>
+  
+  <h1>Список владельцев:</h1>
+  <ul>
+    {% for owner in owners %}
+      <li>
+        {{ owner.firstname }}
+        <button class="btn" data-owner-id="{{ owner.id }}">Показать питомцев</button>
+        <div class="div" hidden>
+          <ul class="pet-list">
+              {% for pet in owner.pets.all %}
+                <li>{{ pet }}</li>
+              {% endfor %}
+          </ul>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleButtons = document.querySelectorAll('.btn');
+  
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const div = this.nextElementSibling;
+        div.classList.toggle('hidden');
+      });
+    });
+  });
+</script>
+</div>
+
+{% endblock %}

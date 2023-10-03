@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block body %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="btn btn-lg btn-light fw-bold border-white bg-secondary" aria-current="page" href="{% url "index" %}">Главная</a>
+        </nav>
+      </div>
+    </header>
+  
+    <main class="px-3">
+      <h1><span class="badge bg-secondary">Клуб домашних животных</span></h1>
+      
+        <p class="lead">
+            <a href="{% url "add_user" %}" class="btn btn-lg btn-light fw-bold border-white bg-secondary">Добавить владельца</a>
+            <a href="{% url "add_pet" %}" class="btn btn-lg btn-light fw-bold border-white bg-secondary">Добавить питомца</a>
+        </p>
+        <p class="lead">
+            <a href="{% url "owner_list" %}" class="btn btn-lg btn-light fw-bold border-white bg-secondary">Все владельцы</a>
+            <a href="{% url "all_pets" %}" class="btn btn-lg btn-light fw-bold border-white bg-secondary">Все питомцы</a>
+        </p>
+    </main>
+  
+    
+  </div>
+{% endblock %}
