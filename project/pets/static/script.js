@@ -1,15 +1,10 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButtons = document.querySelectorAll('.btn');
 
-
-// function show_pets() {
-//   let div = document.getElementById('div');
-//   div.hidden = !div.hidden;
-//   }
-
-// let btn = document.getElementById('btn');
-// btn.addEventListener('click', show_pets);
-
-
-const el = document.getElementById('btn');
-if (el) {
-  el.addEventListener('click', swapper, false);
-}
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+      const div = this.nextElementSibling;
+      div.classList.toggle('d-none');
+     });
+  });
+});

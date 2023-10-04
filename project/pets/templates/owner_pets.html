@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
-
 {% block title %}Питомцы{% endblock %}
-
 {% block body %}
-
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
       <div>
@@ -12,7 +9,6 @@
         </nav>
       </div>
     </header>
-    
     <h1>Питомцы владельца {{ owner.firstname }}:</h1>
     <ol>
         {% for pet in pets %}

@@ -4,21 +4,16 @@ body {
     background-size: cover;
 }
 
-/* .toggle-pets {
-    display:none;
-} */
-
-.toggle-pets[hidden] {
-    display:block;
-}
-ul.pet-list {
-    color: brown;
-    display: none;
-}
-
-
-ul.pet-list[hidden] {
-    display: block;
+li {
+    list-style-type: none;
+    /* Убираем маркеры */
+  }
+  
+  ul {
+    margin-left: 0;
+    /* Отступ слева в браузере IE и Opera */
+    padding-left: 0;
+    /* Отступ слева в браузере Firefox, Safari, Chrome */
   }
 
   .bd-placeholder-img {
@@ -97,9 +92,3 @@ ul.pet-list[hidden] {
   .bd-mode-toggle .dropdown-menu .active .bi {
     display: block !important;
   }
-
-  /* body {
-      background-image: url("/project/pets/static/img/bg.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-  } */

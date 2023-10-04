@@ -13,12 +13,12 @@
   </header>
   
   <h1>Список владельцев:</h1>
-  <ul>
+  <ul class="btn btn-lg btn-light fw-bold border-white bg-secondary">
     {% for owner in owners %}
       <li>
         {{ owner.firstname }}
-        <button class="btn" data-owner-id="{{ owner.id }}">Показать питомцев</button>
-        <div class="div" hidden>
+        <button class="btn btn-lg btn-light fw-bold border-white bg-secondary" data-owner-id="{{ owner.id }}">Показать питомцев</button>
+        <div class="div d-none btn btn-lg btn-light fw-bold border-white bg-secondary">
           <ul class="pet-list">
               {% for pet in owner.pets.all %}
                 <li>{{ pet }}</li>
@@ -28,19 +28,6 @@
       </li>
     {% endfor %}
   </ul>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const toggleButtons = document.querySelectorAll('.btn');
-  
-    toggleButtons.forEach(button => {
-      button.addEventListener('click', function(event) {
-        event.preventDefault();
-        const div = this.nextElementSibling;
-        div.classList.toggle('hidden');
-      });
-    });
-  });
-</script>
 </div>
 
 {% endblock %}

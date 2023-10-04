@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound, HttpResponseRedirect
 
-from pets.models import User, Pet
 from pets.forms import AddUser, AddPet
+from pets.models import User, Pet
 
 def index(request):
     return render(request, 'index.html')
@@ -17,7 +17,6 @@ def add_user(request):
         form = AddUser()
     return render(request, 'add_user.html', {'form': form})
 
-
 def add_pet(request):
     if request.method == 'POST':
         form = AddPet(request.POST)
@@ -27,15 +26,6 @@ def add_pet(request):
     else:
         form = AddPet()
     return render(request, 'add_pet.html', {'form': form})
-
-# def all_users(request):
-#     users = User.objects.prefetch_related('pets').all()
-#     return render(request, 'all_users.html', {'users': users})
-
-# def all_users(request):
-#     # Получаем всех пользователей с их питомцами
-#     users_with_pets = User.objects.prefetch_related('pets').all()    
-#     return render(request, 'all_users.html', {'users_with_pets': users_with_pets})
 
 def owner_list(request):
     owners = User.objects.all()
